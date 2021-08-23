@@ -6,7 +6,7 @@ import Posts from './components/Posts/Posts'
 import Form from './components/Form/Form'
 import memories from './images/memories.png'
 
-function App() {
+const App = () => {
 
   const [currentId, setCurrentId] = useState(0);
   const classes = useStyles();
