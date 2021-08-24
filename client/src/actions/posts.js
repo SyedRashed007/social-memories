@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as api from '../api/index.js'
 
 export const getPosts = () => async (dispatch) => {
@@ -5,6 +6,16 @@ export const getPosts = () => async (dispatch) => {
         const { data } = await api.fetchPosts();
         
         dispatch({ type: 'FETCH_ALL', payload: data });
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+export const createPost = (post) => async (dispatch) => {
+    try {
+        const { data } = await axios.createPost(post); 
+
+        dispatch({type: 'CREATE', payload: data})
     } catch (error) {
         console.log(error.message)
     }
